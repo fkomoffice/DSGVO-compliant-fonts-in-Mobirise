@@ -8,6 +8,8 @@
    
 *Mobirise Version 5.6.8 / Stand: 5. Mai 2022*
 
+Die beiden Downloads sind Kopien des Readme, eines davon ein deepl-translate in Englisch.
+
 ---
 
 ### Layoutphase immer mit Google Font-Linking
