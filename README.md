@@ -1,4 +1,4 @@
-# Google Fonts DSGVO-gerecht nutzen - Spezialfall Mobirise
+# Google Fonts in Mobirise DSGVO-gerecht nutzen
 ********************************************************
 
 ## Readme
