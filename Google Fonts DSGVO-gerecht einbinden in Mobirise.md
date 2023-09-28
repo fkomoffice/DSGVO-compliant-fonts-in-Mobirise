@@ -1,98 +1,94 @@
-# Google Fonts DSGVO-gerecht nutzen - Spezialfall Mobirise
+# Mit Mobirise Google Fonts DSGVO-gerecht nutzen
 ********************************************************
 
-## Beispiele Mobirise (und CMS allgemein)
-********************************************************
 
-*Ein kleines Vorwort wie immer: Backups sind wichtig und man sollte immer eines haben. Und ohne Backup sollte man nicht an Quellcode oder Project Files rumschrauben. Was wir hier beschreiben, haben wir ausprobiert und es funktioniert. Trotzdem machst Du Deine Änderungen auf eigene Gefahr! Es gibt keinen Support zu diesem Workaround, mehr als diese Seite gibt es nicht. Wenn sich jemand darauf beziehen möchte, dann einen Link zu dieser Seite setzen.*
+
+*NB: Backups sind wichtig und man sollte immer eines haben. Was ich hier beschreibe, habe ich ausprobiert und es funktioniert. Trotzdem machst Du Deine Änderungen auf eigene Gefahr! Es gibt von meiner Seite keinen Support zu diesem Workaround, mehr als diese Seite gibt es nicht.*
    
-*Mobirise Version 5.6.8 / Stand: 5. Mai 2022*
-
+*Mobirise Version 5.9.4 / Stand: 28. September 2023 *
 ---
+
+### Mobirise App mit Funktion für lokale Fonts (aber ziemlich schlecht)
+
+Mobirise (ein nicht perfekter, aber praktischer und preiswerter Webbaukasten) bietet eine Funktion zur Verwendung lokaler Fonts. Man muss sie in ein Projekt importieren, und beim Publizieren werden die Fonts zusammen mit den generierten HTML Files per FTP in dein Web-Root geladen. Das Problem dabei: Schriftfamilien kann man so nicht nutzen, nur einzelne Schnitte. was zielmich unbequem für eine Layousphase ist.
+
+**Zudem werden die Fontdateien beim Upload in TTF Truetype Fonts umgewandelt. Dadurch wächst die Detenmenge der Fonts (die von webroot zu laden sind) ganz erheblich. Sehr schnell entstehen dabei TTF Fontschnitte, die 500K haben. Zum Vergleich: ein WOF2 Webfont des gleichen Schirtschnittes hat gerademal 40K, weniger als ein Zehntel der Datenmenge.**
+
+> Also muss der Wunsch sein, a) Google Fonts zu verwenden, b) beim Layouten in Mobirise keine Einschränkung zu haben, c) WOF2 Webfonts auf dem Webspace zu benutzen und d) dabei DSGVO compliant zu sein. 
 
 ### Layoutphase immer mit Google Font-Linking
 
 Für Layoutzwecke ist es immer besser, *ZUNÄCHST EINMAL* Google Fonts per Hyperlink zu Google einzubetten, da man flexibel bleibt und immer ohne großen Auswand eine Schrift (mit allen Schnitten) sehr schnell und einfach einbinden und nutzen kann.
 In einer Layoutphase spielt das eine große Rolle, die Entwicklung von Feinheiten bei der Typopgrafie bleibt einfach und intuitiv.
 
-Nach Abschluss des Layouts, der Abnahme und der Fertigstellung aller Templates und Seitenlayouts *MÜSSEN* jedoch in jedem Fall die verlinkten Schriften durch selbst-gehostete Google Font Schriften ersetzt werden. Denn sonst ist die Website NICHT DSGVO konform und damit abmahnfähig. 
+Nach Abschluss des Layouts, der Abnahme und der Fertigstellung aller Templates und Seitenlayouts *MÜSSEN* jedoch in jedem Fall die verlinkten Schriften durch selbst-gehostete Google Font Schriften ersetzt werden. Denn sonst ist die Website NICHT DSGVO konform und damit abmahnfähig. Ich beschreibe hier, wie das klappt
 
-> Mobirise bietet einen direkten Zugang zu Google Fonts und lädt die gewünschte Schrift-Familie herunter, man kann problemlos und direkt damit arbeiten. Schnitte wie fett oder kursiv stehen dann innerhalb der Schriftfamilie zur Verfügung. Die Schriften werden automatisch herunter geladen und **im Projektordner gesichert**, damit man lokal auf dem Rechner WYSIWYG arbeiten kann. Lädt man ein solches Projekt jedoch auf den Webserver, verlässt man die rechtssichere Zone.
+> Mobirise bietet einen direkten Zugang zu Google Fonts. Man lädt die gewünschte **Schrift-Familie** herunter, und kann problemlos und direkt damit arbeiten. **Schnitte wie fett oder kursiv stehen dann innerhalb der Schriftfamilie zur Verfügung**. Die Schriften werden automatisch herunter geladen und im Projektordner gesichert, **damit man lokal auf dem Rechner WYSIWYG arbeiten kann**. 
+
+Lädt man ein solches Projekt jedoch einfach ohne Anpassung auf den Webserver, verlässt man die rechtssichere Zone. Denn die Schriften werden über einen Link direkt von Google geladen, und nicht wie vorgeschrieben, vom eigenen Server
 
 ---
 
-### Live immer ohne Google Font-Linking
+### Website IMMER ohne Google Font-Linking
 
-Diese Schriften können im Fall von Mobirise im Projektordner auf dem Arbeitsrechner bleiben, **jedoch müssen die im Quelltext angelinkten Googleschriften durch Links ersetzt werden, die auf die auf dem Webserver hinterlegten Schriften verweisen.** Diese Schriften (Google Fonts) kann man zusammen mit dem passenden CSS-Code mit dem [Google Webfont Helper](https://google-webfonts-helper.herokuapp.com/fonts) herunterladen.
+Die verwendeten Schriften können im Mobirise Projektordner auf dem Arbeitsrechner bleiben.
 
-> Mobirise bietet zwar die Option, eigene Schriften zu verwenden, welche dann mit den anderen Daten auf den Webspace geladen werden. Das ist DSGVO-konform. Aaaaaber der große Nachteil davon ist, dass immer nur einzelne Schnitte (wie z.B. regular, bold oder italic) hinzugefügt werden können, keine Schriftfamilien. Die möglichen Formatzuweisungen im Editor von Mobirise sind damit praktisch wertlos, die automatisch generierten Schriftnamen unübersichtlich etc, kein Vergleich zum Bedienkomfort. Zum Layouten und Bearbeiten alles andere als komfortabel.
+**Vor dem Uplaod des Mobirise Projetes müssen die verwendeten Googleschriften in WOF2 Webfonts konvertiert verwenden** Diese Google Fonts kann man zusammen mit dem passenden CSS-Code mit dem [Google Webfont Helper](https://google-webfonts-helper.herokuapp.com/fonts) generieren und herunterladen.
 
-### Folgendes ist also zu tun:
+Diese Webfonts und das CSS-File müssen händisch ins Root des Test- oder Webservers kopiert werden. Sie werden dort in einem eigenen Verzeichnis namens »webfont« abgelegt.
 
-- In der Layoutphase auf jeden Fall mit angelinkten, **externen** Google Fonts auf dem Testserver arbeiten, egal ob CMS-Template oder Mobirise.
-- Nach Abschluss der Layoutphase sind **die verwendeten Schriftfamilien bei [Google Webfont Helper](https://google-webfonts-helper.herokuapp.com/fonts) samt CSS-Code herunterzuladen und auf dem Webserver zu speichern (am besten Schriften und CSS zusammen in einen Ordner namens »fonts«, wie hier im Beispiel beschrieben)**, egal ob CMS-Template oder Mobirise.
-- WOFF und WOFF2 als Schriftformate genügen völlig.
+Dann wird die Projektdatei vom Mobirise auf deinem Rechner dahin gehend verändert, dass der beim Export generierte HTML Code keine Links mehr zu Google enthält und stattdessen einen Link zum CSS-File im »webfont« Ordner enthält.
+
+
+### Wie macht man das?
+
+- In der Layoutphase auf jeden Fall mit angelinkten, **externen** Google Fonts auf dem Testserver arbeiten.
+- Nach Abschluss der Layoutphase werden **die verwendeten Google Schriftfamilien bei [Google Webfont Helper](https://google-webfonts-helper.herokuapp.com/fonts) samt CSS-Code als WOF2 Webfonts generiert
+- **Die WOF2 Webfonts und das dazugehörige CSS werden zusammen in einen Ordner namens »webfonts« im Root des Webservers gesichert**.
+- WOFF2 als Schriftformat genügt völlig.
 - Das CSS-file wird im Google Webfont Helper automatisch erzeugt (in einer Box unter der Schriftauswahl kann man den Serverpfad ergänzen/ändern/korrekt eingeben). Den »kopieren«-Button klicken und den CSS Code in einer Datei sichern , z.B. als **fontstyles.css**
-– Die fontstyles.css Datei zusammen mit den Schriften in einen Ordner namens »fonts« ablegen, der dann 
-	- bei Mobirise im root des Webservers
-	- beim CMS sinnvollerweise im Templateordner des Webservers abgelegt wird.
-- Im CMS-Template **müssen die Links zum Google-Font-Server nun entfernt und durch einen Link zum selbst gehosteten CSS-Fontfile ersetzt werden**.
-- **Im  Mobirise-Project File muss nun der Google Link durch einen lokalen Link ersetzt werden.**
+– Die fontstyles.css Datei zusammen mit den Schriften in einen Ordner namens »webfonts« ablegen, der bei Mobirise im root des Webservers liegen muss.
+- **Im  Mobirise-Project File muss nun der Google Link durch einen lokalen Link ersetzt werden. Das geht folgendermaßen …**
 
 ---
-### CMS Template updaten
+## Mobirise Project patchen
 ********************************************************
-Link zum Fonts Stylesheet in das PHP-Template einfügen.
-Dieser Fontordner im Beispielcode liegt direkt im Template Verzeichnis (das kann man aber auch frei wählen, je nach Template, und muss den Code entsprechend anpassen, hier Beispiel WBCE, Erwähnung nur der Vollständigkeit halber) ...
-
-    <link rel="stylesheet" type="text/css" href="<?php echo TEMPLATE_DIR; ?>/fonts/fontstyles.css" />
-
-
-»fontstyles.css« liegt im Ordner »fonts«, und der liegt im Templateordner - der Pfad ist demzufolge /fonts/fontstyles.css
-
-> **Ganz wichtig: Die alten https://fonts.googleapis.com/css?blablabla Links müssen aus dem Template bzw. Stylesheet vollständig entfernt werden!**
-
----
-## Mobirise Project updaten
-********************************************************
-
-Das läuft komplett anders.
 
 - Gehe in den Mobirise-Projektordner und öffne das betreffende **»project.mobirise«** mit einem Text-Editor
-	- beim Mac: ~/Library/Application Support/Mobirise.com/Mobirise/projects/project-2022-05-05_123456/project.mobirise
-- Kann man gut identifizieren anhand des Screenshots im Projektordner
-- Kann man eindeutig identifizieren anahnd der ersten Zeilen im Projectfile
-- Suche nach **»fontname«**
+	- beim Mac: ~/Library/Application Support/Mobirise.com/Mobirise/projects/project-2023-09-28_XXXXXXXX/project.mobirise
+- Kann man gut identifizieren anhand der Screenshots im Projektordner
+- Kann man eindeutig identifizieren anhand der ersten Zeilen im Projectfile: Zeile 3 ("name": "DEIN_PROPJEKTNAME")
+- Suche nach **»sitefonts«** (etwa Zeile 44)
 
-Dort innerhalb des Mobirise-Project File (Code ähnlich wie hier, Schriftnamen und Pfade können anders sein) muss nach Abschluss der Layoutarbeiten der **"link"**
+*Innerhalb des Mobirise-Project File* (Code ähnlich wie hier, **mein Schriftbeispiel ist Fira**. Schriftnamen und Pfade können bei Dir anders sein) muss nach Abschluss der Layoutarbeiten die **"url"** von einem absoluten Link zu Google in einen relativen Link zu deinen selbst gehosteten Schriften geändert werden.
 ```
-"fontName": {
-"name": "Libre Franklin",
-"css": "'Libre Franklin', serif",
-"link": "https://fonts.googleapis.com/css?family=Libre+Franklin:400,400i,600,600i"
-            }
+"siteFonts": [
+	{
+	"css"; "'Fira Sans' sans-serif"
+	"name": "Fira Sans"
+	"url": "https://fonts.googleapis.com/ css?family=Fira+Sans: 100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+	}
+]
 ```
 **geändert werden in**
 ```
-"fontName": {
-"name": "Libre Franklin",
-"css": "'Libre Franklin', serif",
-"link": "https://DEINEDOMAIN.COM/fonts/fontstyles.css"
-            }
+
+"siteFonts": [
+	{
+	"css"; "'Fira Sans' sans-serif"
+	"name": "Fira Sans"
+	"url": "webfonts/fontstyles.css?"
+	}
+]
 ```
-Code ähnlich wie hier, Schriftnamen und Pfade können anders sein. DEINEDOMAIN.COM ersetzen durch deine eigene Domain.
-Ein relativer Link sollte aber auch funktionieren. **!Aber wir sind noch nicht fertig!**
+**Man achte auf das Fragezeichen am Ende des relativen CSS Links!!**
 
-### Und nun etwas ganz Wichtiges betreffend Mobirise
-********************************************************
+### Das Fragezeichen ist wichtig, denn Mobirise hat hier einen Bug (immer noch)
+********************************************************************************
 
-Mobirise generiert einen Teil des Codes automatisch und ändert den Link ebenso automatisch beim Uploaden zu **https://YOURDOMAIN.COM/fonts/fontstyles.css&display=swap**
+Mobirise generiert einen Teil des Codes automatisch und ändert den Link ebenso automatisch beim Uploaden zu **webfonts/fontstyles.css?&display=swap**
 
-**»&display=swap«** wurde automatisch hinzugefügt. Nein, das kann man nicht abschalten. Weshalb nicht der Link angepasst werden muss, **sondern bei Mobirise der Suffix des CSS-Dateinamens**.
-
-Es **MUSS**
-- der Dateiname des CSS von **fontstyles.css**
-- zu **fontstyles.css&display=swap** geändert werden.
+**»&display=swap«** wurde automatisch hinzugefügt. **Und ohne unser Fragezeichen funktioniert dieser Funktionsaufruf nicht, und der Link schon gar nicht**.
 
 Jetzt sollte alles funktionieren. Fertig.
 
