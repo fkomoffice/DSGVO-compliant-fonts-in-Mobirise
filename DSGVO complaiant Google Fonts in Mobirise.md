@@ -41,7 +41,7 @@ However, if you simply load such a project onto the web server without customiza
 ### Use the WOF2 google webfonts - step by step.
 
 - In the layout phase **be sure to work with the Google fonts available in Mobirise. And only those.**
-- After finishing the layout phase **the used Google font families are generated at [Google Webfont Helper](https://google-webfonts-helper.herokuapp.com/fonts) together with CSS code as WOF2 web fonts
+- After finishing the layout phase **the used Google font families are generated at [Google Webfont Helper](https://gwfh.mranftl.com/fonts) together with CSS code as WOF2 web fonts
 - **The WOF2 web fonts and the corresponding CSS are saved together in a folder called "webfonts" in the root of the web server**.
 - WOFF2 as font format is completely sufficient.
 - The CSS file is automatically generated in Google Webfont Helper (in a box below the font selection you can add/change/correct the server path). Click the "copy" button and save the CSS code in a file, e.g. as **fontstyles.css**.
