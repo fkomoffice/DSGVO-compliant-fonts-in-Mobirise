@@ -10,7 +10,7 @@
 
 ### Mobirise App mit Funktion für lokale Fonts (aber ziemlich schlecht)
 
-Mobirise (ein nicht perfekter, aber praktischer und preiswerter Webbaukasten) bietet eine Funktion zur Verwendung lokaler Fonts. Man muss sie in ein Projekt importieren, und beim Publizieren werden die Fonts zusammen mit den generierten HTML Files per FTP in dein Web-Root geladen. Das Problem dabei: Schriftfamilien kann man so nicht nutzen, nur einzelne Schnitte. was zielmich unbequem für eine Layousphase ist.
+Mobirise (ein nicht perfekter, aber praktischer und preiswerter Webbaukasten) bietet eine Funktion zur Verwendung lokaler Fonts. Man muss sie in ein Projekt importieren, und beim Publizieren werden die Fonts zusammen mit den generierten HTML Files per FTP in dein Web-Root geladen. Das Problem dabei: Schriftfamilien kann man so nicht nutzen, nur einzelne Schnitte. was ziemlich unbequem für eine Layousphase ist.
 
 **Zudem werden die Fontdateien beim Upload in TTF Truetype Fonts umgewandelt. Dadurch wächst die Detenmenge der Fonts (die von webroot zu laden sind) ganz erheblich. Sehr schnell entstehen dabei TTF Fontschnitte, die 500K haben. Zum Vergleich: ein WOF2 Webfont des gleichen Schirtschnittes hat gerademal 40K, weniger als ein Zehntel der Datenmenge.**
 
