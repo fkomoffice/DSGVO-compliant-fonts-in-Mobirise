@@ -12,9 +12,7 @@ Mobirise (a not perfect, but practical and cheap web builder) offers a feature t
 
 **In addition, the font files are uploaded as TTF Truetype fonts. Thus the amount of data (fonts loaded from webroot) grows considerably. Often with TTF fonts, which have about 500K. For comparison: a WOFF2 webfont of the same style has just 40K, less than a tenth of the amount of data.
 
-> What Google says about that: »WOFF (and its successor WOFF2) are compressed file formats created specifically for web fonts. Although regular OpenType fonts (TTF and OTF files) can be used as web fonts, such usage is not recommended as it usually contravenes license agreements—and the files are significantly larger. WOFF and WOFF2 fonts cannot usually be installed on desktop computers.
-
-Note that web fonts are assets that need downloading, and therefore affect the overall performance of page load times; i.e., the more web fonts we use, the longer it’ll take for our websites to load. «
+> What Google says about that: WOFF (and its successor WOFF2) are compressed file formats created specifically for web fonts. Although regular OpenType fonts (TTF and OTF files) can be used as web fonts, such usage is not recommended as it usually contravenes license agreements—and the files are significantly larger. WOFF and WOFF2 fonts cannot usually be installed on desktop computers. Note that web fonts are assets that need downloading, and therefore affect the overall performance of page load times; i.e., the more web fonts we use, the longer it’ll take for our websites to load.
 
 > So the desire must be a) to use Google Fonts, b) to have no restriction in layouting in Mobirise, c) to use WOFF2 webfonts on the webspace and d) to be DSGVO compliant while doing so. 
 
