@@ -10,7 +10,7 @@
 
 Mobirise (ein nicht perfekter, aber praktischer und preiswerter Webbaukasten) bietet eine Funktion zur Verwendung lokaler Fonts. Man muss sie in ein Projekt importieren, und beim Publizieren werden die Fonts zusammen mit den generierten HTML Files per FTP in dein Web-Root geladen. Das Problem dabei: Schriftfamilien kann man so nicht nutzen, nur einzelne Schnitte. was zielmich unbequem für eine Layousphase ist.
 
-**Zudem werden die Fontdateien beim Upload als TTF Truetype Fonts ~~umgewandelt~~ auf den Server geladen. Dadurch wächst die Detenmenge der Fonts (die von webroot zu laden sind) ganz erheblich. Sehr schnell ~~entstehen~~sind dabei TTF Fontschnitte, die 500K haben. Zum Vergleich: ein WOFF2 Webfont des gleichen Schirtschnittes hat gerademal 40K, weniger als ein Zehntel der Datenmenge.**
+**Zudem werden die Fontdateien beim Upload als TTF Truetype Fonts ~~umgewandelt~~ auf den Server geladen. Dadurch wächst die Detenmenge der Fonts (die von webroot zu laden sind) ganz erheblich. Sehr schnell ~~entstehen~~ sind dabei TTF Fontschnitte, die 500K haben. Zum Vergleich: ein WOFF2 Webfont des gleichen Schirtschnittes hat gerademal 40K, weniger als ein Zehntel der Datenmenge.**
 
 > Also muss der Wunsch sein, a) Google Fonts zu verwenden, b) beim Layouten in Mobirise keine Einschränkung zu haben, c) WOFF2 Webfonts auf dem Webspace zu benutzen und d) dabei DSGVO compliant zu sein. 
 
