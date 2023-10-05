@@ -10,9 +10,9 @@
 
 Mobirise (ein nicht perfekter, aber praktischer und preiswerter Webbaukasten) bietet eine Funktion zur Verwendung lokaler Fonts. Man muss sie in ein Projekt importieren, und beim Publizieren werden die Fonts zusammen mit den generierten HTML Files per FTP in dein Web-Root geladen. Das Problem dabei: Schriftfamilien kann man so nicht nutzen, nur einzelne Schnitte. was zielmich unbequem für eine Layousphase ist.
 
-**Zudem werden die Fontdateien beim Upload in TTF Truetype Fonts umgewandelt. Dadurch wächst die Detenmenge der Fonts (die von webroot zu laden sind) ganz erheblich. Sehr schnell entstehen dabei TTF Fontschnitte, die 500K haben. Zum Vergleich: ein WOF2 Webfont des gleichen Schirtschnittes hat gerademal 40K, weniger als ein Zehntel der Datenmenge.**
+**Zudem werden die Fontdateien beim Upload als TTF Truetype Fonts ~~umgewandelt~~ auf den Server geladen. Dadurch wächst die Detenmenge der Fonts (die von webroot zu laden sind) ganz erheblich. Sehr schnell ~~entstehen~~sind dabei TTF Fontschnitte, die 500K haben. Zum Vergleich: ein WOFF2 Webfont des gleichen Schirtschnittes hat gerademal 40K, weniger als ein Zehntel der Datenmenge.**
 
-> Also muss der Wunsch sein, a) Google Fonts zu verwenden, b) beim Layouten in Mobirise keine Einschränkung zu haben, c) WOF2 Webfonts auf dem Webspace zu benutzen und d) dabei DSGVO compliant zu sein. 
+> Also muss der Wunsch sein, a) Google Fonts zu verwenden, b) beim Layouten in Mobirise keine Einschränkung zu haben, c) WOFF2 Webfonts auf dem Webspace zu benutzen und d) dabei DSGVO compliant zu sein. 
 
 ***************************************
 ### Layoutphase immer mit Google Font-Linking
@@ -31,18 +31,18 @@ Lädt man ein solches Projekt jedoch einfach ohne Anpassung auf den Webserver, v
 
 - Die mit Mobirise geladenen verwendeten Google Schriften bleiben im Mobirise Projektordner auf dem Arbeitsrechner.
 
-- Vor dem FTP-Export des Mobirise Projetes auf den Webserver müssen die verwendeten Googleschriften in WOF2 Webfonts konvertiert verwenden
+- Vor dem FTP-Export des Mobirise Projetes auf den Webserver müssen die verwendeten Googleschriften in WOFF2 Webfonts konvertiert verwenden
 
 - Diese Webfonts und das CSS-File müssen dann händisch ins Root des Test- oder Webservers kopiert werden.
 
 - Die Projektdatei vom Mobirise auf deinem Rechner muss angepasst werden.
 
 ***************************************
-### Nutze WOF2 Google Webfonts – Schritt für Schritt
+### Nutze WOFF2 Google Webfonts – Schritt für Schritt
 
 - In der Layoutphase **auf jeden Fall mit den in Mobirise verfügbaren Google Schriften arbeiten.**
-- Nach Abschluss der Layoutphase werden **die verwendeten Google Schriftfamilien bei [Google Webfont Helper](https://gwfh.mranftl.com/fonts) samt CSS-Code als WOF2 Webfonts generiert
-- **Die WOF2 Webfonts und das dazugehörige CSS werden zusammen in einen Ordner namens »webfonts« im Root des Webservers gesichert**.
+- Nach Abschluss der Layoutphase werden **die verwendeten Google Schriftfamilien bei [Google Webfont Helper](https://gwfh.mranftl.com/fonts) samt CSS-Code als WOFF2 Webfonts generiert
+- **Die WOFF2 Webfonts und das dazugehörige CSS werden zusammen in einen Ordner namens »webfonts« im Root des Webservers gesichert**.
 - WOFF2 als Schriftformat genügt völlig.
 - Das CSS-file wird im Google Webfont Helper automatisch erzeugt (in einer Box unter der Schriftauswahl kann man den Serverpfad ergänzen/ändern/korrekt eingeben). Den »kopieren«-Button klicken und den CSS Code in einer Datei sichern , z.B. als **fontstyles.css**
 – Die fontstyles.css Datei zusammen mit den Schriften in einen Ordner namens »webfonts« ablegen, der bei Mobirise im root des Webservers liegen muss.
@@ -97,7 +97,7 @@ Mit dem ? sollte jetzt alles funktionieren. Fertig.
 - Die Definition der Schriftenlinks bleibt im Project File erhalten, solange man an den Projektschriften (in den Site Styles) **nichts** mehr ändert.
 - Auf dem Arbeitsrechner kann mit den festgelegten Google Schriften frei gearbeitet werden (fett, kursiv, H1 ... usw.). Die Previews in Mobirise funktionieren einwandfrei.
 - Bei Upload wird kein fonts.googleapis-Link mehr erzeugt.
-- Es werden ausschliesslich WOF2 Fonts verwendet, was viel schneller lädt und besser funktioniert.
+- Es werden ausschliesslich WOFF2 Fonts verwendet, was viel schneller lädt und besser funktioniert.
 - Der Export auf den Webserver ist DSGVO konform.
 
 > - Ein Hinweis noch. Entscheidet man sich später doch noch für eine Änderung oder Erweiterung der Schriftauswahl, muss man die Prozedur wiederholen. Deshalb erst layouten, und dann coden ;-)
