@@ -10,9 +10,9 @@
 
 Mobirise (a not perfect, but practical and cheap web builder) offers a feature to use local fonts. You have to import them into a project, and when publishing, the fonts are uploaded to your web root via FTP along with the generated HTML files. The problem with this is that you can't use font families this way, only individual cuts. which is purposefully inconvenient for a layous phase.
 
-**In addition, the font files are converted to TTF Truetype fonts during upload. Thus the amount of fonts (to be loaded by webroot) grows considerably. Very fast TTF fonts are created, which have 500K. For comparison: a WOF2 webfont of the same style has just 40K, less than a tenth of the amount of data.
+**In addition, the font files are uploaded as TTF Truetype fonts. Thus the amount of data (fonts loaded from webroot) grows considerably. Often with TTF fonts, which have about 500K. For comparison: a WOFF2 webfont of the same style has just 40K, less than a tenth of the amount of data.
 
-> So the desire must be a) to use Google Fonts, b) to have no restriction in layouting in Mobirise, c) to use WOF2 webfonts on the webspace and d) to be DSGVO compliant while doing so. 
+> So the desire must be a) to use Google Fonts, b) to have no restriction in layouting in Mobirise, c) to use WOFF2 webfonts on the webspace and d) to be DSGVO compliant while doing so. 
 
 ****************************************************
 ### Layout always with Google Font linking
@@ -31,18 +31,18 @@ However, if you simply load such a project onto the web server without customiza
 
 - The used Google fonts loaded with Mobirise remain in the Mobirise project folder on the work computer.
 
-- Before the FTP export of the Mobirise project to the web server, the used Google fonts must be converted to WOF2 web fonts.
+- Before the FTP export of the Mobirise project to the web server, the used Google fonts must be converted to WOFF2 web fonts.
 
 - These web fonts and the CSS file must then be copied manually to the root of the test or web server.
 
 - The project file from the Mobirise on your computer must be adapted.
 
 ****************************************************
-### Use the WOF2 google webfonts - step by step.
+### Use the WOFF2 google webfonts - step by step.
 
 - In the layout phase **be sure to work with the Google fonts available in Mobirise. And only those.**
-- After finishing the layout phase **the used Google font families are generated at [Google Webfont Helper](https://gwfh.mranftl.com/fonts) together with CSS code as WOF2 web fonts
-- **The WOF2 web fonts and the corresponding CSS are saved together in a folder called "webfonts" in the root of the web server**.
+- After finishing the layout phase **the used Google font families are generated at [Google Webfont Helper](https://gwfh.mranftl.com/fonts) together with CSS code as WOFF2 web fonts
+- **The WOFF2 web fonts and the corresponding CSS are saved together in a folder called "webfonts" in the root of the web server**.
 - WOFF2 as font format is completely sufficient.
 - The CSS file is automatically generated in Google Webfont Helper (in a box below the font selection you can add/change/correct the server path). Click the "copy" button and save the CSS code in a file, e.g. as **fontstyles.css**.
 - Put the fontstyles.css file together with the fonts in a folder called "webfonts", which must be in the root of the web server at Mobirise.
@@ -98,7 +98,7 @@ With the ? everything should work now. Done.
 - The definition of the font links remains in the project file as long as you **don't** change anything else in the project fonts (in the site styles).
 - On the workstation you can work freely with the defined Google Fonts (bold, italic, H1 ... etc.). The previews in Mobirise work fine.
 - When uploading, no more fonts.googleapis link is generated.
-- Only WOF2 fonts are used, which loads much faster and works better.
+- Only WOFF2 fonts are used, which loads much faster and works better.
 - The export to the webserver is DSGVO compliant.
 
 > - One more hint. If you decide to change or extend the font selection later, you have to repeat the procedure. Therefore first layout, and then code ;-)
