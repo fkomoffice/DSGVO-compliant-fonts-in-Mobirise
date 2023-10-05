@@ -58,7 +58,7 @@ Lädt man ein solches Projekt jedoch einfach ohne Anpassung auf den Webserver, v
 - Suche nach **»sitefonts«** (etwa Zeile 44)
 
 *Innerhalb des Mobirise-Project File* (Code ähnlich wie hier, **mein Schriftbeispiel ist Fira**. Schriftnamen und Pfade können bei Dir anders sein) muss nach Abschluss der Layoutarbeiten die **"url"** von einem absoluten Link zu Google in einen relativen Link zu deinen selbst gehosteten Schriften geändert werden.
-```
+```js
 "siteFonts": [
 	{
 	"css"; "'Fira Sans' sans-serif"
@@ -68,7 +68,7 @@ Lädt man ein solches Projekt jedoch einfach ohne Anpassung auf den Webserver, v
 ]
 ```
 **geändert werden in**
-```
+```js
 
 "siteFonts": [
 	{
